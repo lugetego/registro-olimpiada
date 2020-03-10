@@ -12,3 +12,7 @@ fos_user:
       type: App\Form\RegistrationType
     confirmation:
       enabled: true
+
+  url_generator:
+    override:
+      host: http://olimpiadamichoacanadematematicas.com
