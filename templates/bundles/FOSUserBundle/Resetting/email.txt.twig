@@ -1,0 +1,25 @@
+{% block subject %}
+    {% autoescape false %}
+    {{ 'Solicitud Cambio de Contraseña'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}, 'FOSUserBundle') }}
+    {% endautoescape %}
+{% endblock %}
+{% block body_text %}
+    {% autoescape false %}
+
+Olimpiada Michoacana de Matemáticas
+
+Este correo ha sido enviado para crear una nueva contraseña para el acceso a la Olimpiada Michoacana de Matemáticas
+
+Nombre de usuario: {{ user.username }}
+
+Para realizar esta acción es necesario abrir el siguiente enlace.
+
+{{ confirmationUrl }}
+
+Favor de hacernos saber tus dudas y/o comentarios.
+
+Olimpiada Michoacana de Matemáticas
+{% endautoescape %}
+{% endblock %}
+{% block body_html %}{% endblock %}
+

@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coordinador - Olimpiada Michoacana de Matemáticas{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">#}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+{% block sidebar %}
+    <li class="nav-item">
+        <a class="nav-link active" href="#">
+            <span data-feather="users"></span>
+            <i class="fas fa-user-friends"></i> Alumnos registrados <span class="badge badge-pill badge-primary small">{{ estudiantes|length }}</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('coordinador_estudiante') }}">
+            <i class="fas fa-user-plus"></i> Registrar nuevo alumno
+        </a>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        <h1 class="h4">Alumnos registrados <span class="badge badge-pill badge-primary small">{{ estudiantes|length }}</span></h1>
+        <p><strong>Coordinador:</strong> {{ user.nombre }} {{ user.paterno }} {{ user.materno }}</p>
+        <p><strong>Sede:</strong> {{ user.sede }}</p>
+        <p><strong>Municipio:</strong> {{ user.municipio }}</p>
+    </div>
+
+    <table class="table table-striped table-bordered table-hover table-condensed " id="example">
+        <thead>
+        <tr>
+            <th class="text-center">Identificador</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Apellido paterno</th>
+            <th class="text-center">Apellido materno</th>
+            <th class="text-center">Nivel</th>
+            <th class="text-center">Correo</th>
+            <th class="text-center">Fecha de nacimiento</th>
+            <th class="text-center">Puntuación</th>
+            <th class="text-center">Modificar</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for estudiante in estudiantes %}
+            <tr>
+                <td><a href="{{ path('estudiante_edit', {'slug': estudiante.slug}) }}">{{ estudiante.slug }}</a></td>
+                <td>{{ estudiante.nombre }}</td>
+                <td>{{ estudiante.paterno }}</td>
+                <td>{{ estudiante.materno }}</td>
+                <td>{{ estudiante.nivel }}</td>
+                <td>{{ estudiante.mail }}</td>
+                <td>{{ estudiante.nacimiento ? estudiante.nacimiento|localizeddate('long', 'none') }}</td>
+                <td class="text-center">{{ estudiante.puntuacion }}</td>
+                <td class="text-center">
+                    <a href="{{ path('estudiante_edit', {'slug': estudiante.slug}) }}"><i class="fas fa-user-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('coordinador_estudiante') }}" class="btn btn-primary mt-5" role="button" aria-pressed="true"><i class="fas fa-user-plus"></i> Registrar alumno</a>
+
+
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+                $('#example').DataTable({
+                });
+            }
+        );
+    </script>
+
+
+
+{% endblock %}

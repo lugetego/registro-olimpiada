@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modificar información{% endblock %}
+
+{% block sidebar %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('coordinador_index') }}">
+            <span data-feather="users"></span>
+            <i class="fas fa-user-friends"></i> Alumnos registrados
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">
+            <span data-feather="shopping-cart"></span>
+            <i class="fas fa-user-edit"></i> Información de alumno
+        </a>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        <h1 class="h4">Información de alumno</h1>
+        <p><strong>Coordinador:</strong> {{ user.nombre }} {{ user.paterno }} {{ user.materno }}</p>
+        <p><strong>Sede:</strong> {{ user.sede }}</p>
+        <p><strong>Municipio:</strong> {{ user.municipio }}</p>
+    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('coordinador_index')}}">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Información de alumno</li>
+        </ol>
+    </nav>
+    {{ include('estudiante/_form.html.twig', {'button_label': 'Modificar información'}) }}
+    <br>
+    {{ include('estudiante/_delete_form.html.twig') }}
+{% endblock %}
+
+
+
+

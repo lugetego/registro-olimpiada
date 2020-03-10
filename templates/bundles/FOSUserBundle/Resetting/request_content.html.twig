@@ -1,0 +1,14 @@
+
+
+<h5 class="text-secondary text-center my-4"><strong>Solicitud de Contraseña</strong></h5>
+<p>Ingresa tu nombre de usuario, se te enviará un correo con las instrucciones para restablecer tu cpntraseña.</p>
+<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+    <div class="form-group">
+        <label for="username" class="sr-only">{{ 'resetting.request.username'|trans }}</label>
+        <input type="text" id="username" placeholder="usuario" name="username" required="required"
+               class="form-control"/>
+    </div>
+    <div>
+        <input class="btn btn-primary btn-block" type="submit" id="submit" name="submit" value="Recuperar contraseña"/>
+    </div>
+</form>

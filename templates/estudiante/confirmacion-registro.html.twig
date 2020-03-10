@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro - confirmación{% endblock %}
+
+
+{% block body %}
+    <div class="mt-5 pt5">
+        <h2 class="mt-5 mb-5">Olimpiada Michoacana de Matemáticas <small class="text-muted">Registro estudiante</small></h2>
+    </div>
+    <hr>
+    <div class="alert alert-success col-10" role="alert">
+        <h1>Registro exitoso</h1>
+        <hr>
+        <p><h3><strong>Importante</strong></h3></p>
+        <h5>Verifica que te haya llegado un correo a la dirección {{estudiante.mail }} con la siguiente información:</h5>
+        <strong>Nombre:</strong> {{ estudiante.nombre }} {{ estudiante.paterno }} {{ estudiante.materno }}<br>
+        <strong>Fecha de nacimiento:</strong>  {{ estudiante.nacimiento|localizeddate('long', 'none') }}<br>
+        <strong>Nivel:</strong> {{ estudiante.nivel }}</p>
+        <p class="text-justify"> <h5>De no ser asì, verifica en tu bandeja de correos no deseados o puedes escribir a olimpiada.omm@gmail.com para confirmar que
+        hayamos recibido tu información.</h5></p>
+
+
+
+    </div>
+
+
+{% endblock %}

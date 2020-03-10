@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro - estudiante{% endblock %}
+
+
+{% block body %}
+    <div class="mt-5">
+        <h2 class="mt-5 mb-2">Olimpiada Michoacana de Matemáticas <small class="text-muted">Registro estudiante</small></h2>
+    </div>
+    <hr>
+    <div class="alert alert-primary" role="alert">
+        <h4><strong><i class="fas fa-exclamation-triangle"></i> Importante</strong></h4>
+        <ul>
+            <li>Este es el registro para estudiantes que presentarán el examen en línea</li>
+            <li>Asegurate de escribir correctamente tu dirección de correo electrónico.<br>El examen de la olimpiada e información adicional se enviará al correo que registres.</li>
+            <li>Después de registrarte recibirás un correo de confirmación, de no ser así favor de comunicarte al correo <strong>olimpiada.omm<i class="fas fa-at"></i>gmail.com</strong> para asegurarte que hayamos
+            recibido tu información.</li>
+        </ul>
+    </div>
+
+    {{ include('estudiante/_form.html.twig') }}
+
+{% endblock %}

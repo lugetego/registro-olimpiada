@@ -1,0 +1,56 @@
+{{ form_start(form) }}
+{#    {{ form_widget(form) }}#}
+
+<div class="form-row">
+    <div class="form-group col-md-4 col-sm-12">
+        <label for="inputNombre" class="text-info"><strong>Nombre(s)</strong></label>
+        <span class="text-danger">{{ form_errors(form.nombre) }}</span>
+        {{ form_widget(form.nombre, {'attr': {'class': 'form-control', 'aria-describedby': 'userHelp'}}) }}
+    </div>
+    <div class="form-group col-md-4 col-sm-12">
+        <label for="inputEmail" class="text-info"><strong>Apellido paterno</strong></label>
+        <span class="text-danger">{{ form_errors(form.paterno) }}</span>
+        {{ form_widget(form.paterno, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group col-md-4 col-sm-12">
+        <label for="inputEmail" class="text-info"><strong>Apellido materno</strong></label>
+        <span class="text-danger">{{ form_errors(form.materno) }}</span>
+        {{ form_widget(form.materno, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-4 col-sm-12">
+        <label for="inputNombre" class="text-info"><strong>Correo electrónico</strong></label>
+        <span class="text-danger">{{ form_errors(form.mail) }}</span>
+        {{ form_widget(form.mail, {'attr': {'class': 'form-control', 'aria-describedby': 'userHelp'}}) }}
+    </div>
+    <div class="form-group col-md-4">
+        <div class="text-info"><strong>{{ form_label(form.nacimiento) }}</strong></div>
+        <div class="form-row">
+            <div class="col-lg-4" >{{ form_widget(form.nacimiento.day, {'attr': {'class': 'form-control input-sm'} } ) }}</div>
+            <div class="col-lg-4" >{{ form_widget(form.nacimiento.month, {'attr': {'class': 'form-control input-sm'} } ) }}</div>
+            <div class="col-lg-4" >{{ form_widget(form.nacimiento.year, {'attr': {'class': 'form-control input-sm'} } ) }}</div>
+            <div>{{ form_errors(form.nacimiento) }}</div>
+        </div>
+    </div>
+    <div class="form-group col-md-4 col-sm-12">
+        <label for="inputNivel" class="text-info"><strong>Nivel</strong></label>
+        <span class="text-danger">{{ form_errors(form.nivel) }}</span>
+        {{ form_widget(form.nivel, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {% if form.puntuacion is defined %}
+            <div class="form-group col-md-4 col-sm-12">
+                <label for="inputPuntuacion" class="text-info"><strong>Puntuación</strong></label>
+                <span class="text-danger">{{ form_errors(form.puntuacion) }}</span>
+                {{ form_widget(form.puntuacion, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        {% endif %}
+    {% endif %}
+</div>
+<button class="btn btn btn-primary mt-5"> {{ button_label|default('Registrar') }}</button>
+{{ form_end(form) }}
+
+
