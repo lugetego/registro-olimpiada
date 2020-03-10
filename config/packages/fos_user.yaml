@@ -3,6 +3,7 @@ fos_user:
   db_driver: orm # other valid values are 'mongodb' and 'couchdb'
   firewall_name: main
   user_class: App\Entity\User
+
   from_email:
     address: "webmaster@matmor.unam.mx"
     sender_name: "webmaster@matmor.unam.mx"
@@ -13,6 +14,5 @@ fos_user:
     confirmation:
       enabled: true
 
-  url_generator:
-    override:
-      host: http://olimpiadamichoacanadematematicas.com
+
+
