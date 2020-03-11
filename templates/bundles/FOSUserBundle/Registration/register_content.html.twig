@@ -56,12 +56,16 @@
                         <span class="text-danger">{{ form_errors(form.materno) }}</span>
                         {{ form_widget(form.materno, {'attr': {'class': 'form-control'}}) }}
                     </div>
-
-
                     <div class="form-group col-md-6 col-sm-12">
                         <label for="inputName">Teléfono celular</label>
                         <span class="text-danger">{{ form_errors(form.celular) }}</span>
                         {{ form_widget(form.celular, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label for="inputEmail">Email</label>
+                        <span class="text-danger">{{ form_errors(form.email) }}</span>
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                        {#<small id="emailHelp" class="form-text text-muted">Valid email.</small>#}
                     </div>
                 </div>
 
@@ -76,12 +80,7 @@
                         {#<input type="text" class="form-control" id="inputUsername" aria-describedby="userHelp" placeholder="username">#}
                         <small id="userHelp" class="form-text text-muted">Con este usuario deberás iniciar sesión</small>
                     </div>
-                    <div class="form-group col-md-6 col-sm-12">
-                        <label for="inputEmail">Email</label>
-                        <span class="text-danger">{{ form_errors(form.email) }}</span>
-                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-                        {#<small id="emailHelp" class="form-text text-muted">Valid email.</small>#}
-                    </div>
+
 
 
                     <div class="form-group col-md-6 col-sm-12  ">
