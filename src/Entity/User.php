@@ -26,7 +26,7 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=80)
-     * @Assert\NotBlank(message="Please enter your name.")
+     * @Assert\NotBlank(message="Escribe tu nombre.")
      */
     protected $nombre;
 
@@ -45,6 +45,14 @@ class User extends BaseUser
      * @Assert\NotBlank(message="Escribe tu apellido materno")
      */
     protected $materno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plantel", type="string", length=255)
+     * @Assert\NotBlank(message="Escribe el plantel al que perteneces")
+     */
+    protected $plantel;
 
     /**
      * @ORM\OneToMany(targetEntity="Estudiante", mappedBy="coordinador", cascade={"persist"})
@@ -329,6 +337,22 @@ class User extends BaseUser
     public function getEstudiantes()
     {
         return $this->estudiantes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlantel()
+    {
+        return $this->plantel;
+    }
+
+    /**
+     * @param string $plantel
+     */
+    public function setPlantel(string $plantel)
+    {
+        $this->plantel = $plantel;
     }
 
 

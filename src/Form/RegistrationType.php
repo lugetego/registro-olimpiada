@@ -15,26 +15,9 @@ class RegistrationType extends AbstractType
     {
         $builder->add('nombre');
         $builder->add('paterno');
-//        $builder->add('plantel');
-//        $builder->add('gender','Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
-//            'choices'  => array(
-//                'Female' => 'M',
-//                'Male' => 'H',
-//            ),
-//            'choices_as_values' => true,
-//        ));
         $builder->add('materno');
-//        $builder->add('municipio');
+        $builder->add('plantel');
         $builder->add('celular');
-
-//        $builder->add('affiliation');
-//        $builder->add('student', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array(
-//            'choices'  => array(
-//                'Yes' => true,
-//                'No' => false,
-//            ),
-//            'choices_as_values' => true,
-//        ));
         $builder
             ->add('sede')
             ->add('municipio')

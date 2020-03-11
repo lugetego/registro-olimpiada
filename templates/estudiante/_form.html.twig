@@ -39,6 +39,16 @@
         <span class="text-danger">{{ form_errors(form.nivel) }}</span>
         {{ form_widget(form.nivel, {'attr': {'class': 'form-control'}}) }}
     </div>
+    <div class="form-group col-md-4 col-sm-12">
+        <label for="inputName" class="text-info"><strong>Plantel al que pertenece</strong></label>
+        <span class="text-danger">{{ form_errors(form.plantel) }}</span>
+        {{ form_widget(form.plantel, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group col-md-4 col-sm-12">
+        <label for="inputName" class="text-info"><strong>Municipio</strong></label>
+        <span class="text-danger">{{ form_errors(form.municipio) }}</span>
+        {{ form_widget(form.municipio, {'attr': {'class': 'form-control'}}) }}
+    </div>
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         {% if form.puntuacion is defined %}

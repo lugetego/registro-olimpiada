@@ -19,7 +19,6 @@ class Estudiante
      */
     private $id;
 
-
     /**
      * @var coordinador
      * @ORM\ManyToOne(targetEntity="User", inversedBy="estudiantes")
@@ -27,36 +26,53 @@ class Estudiante
      */
     private $coordinador;
 
-
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Escribe tu nombre.")
      */
     private $nombre;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Escribe tu apellido paterno")
      */
     private $paterno;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Escribe tu apellido materno")
      */
     private $materno;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Escribe el nivel en el que estás")
      */
     private $nivel;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Escribe tu correo electrónico")
      */
     private $mail;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="Escribe tu fecha de nacimiento")
      */
     private $nacimiento;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Escribe el plantel al que perteneces")
+     */
+    private $plantel;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Escribe el municipio")
+     */
+    private $municipio;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -275,5 +291,39 @@ class Estudiante
         $this->createdAt = new \DateTime();
         $this->modifiedAt = new \DateTime();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPlantel()
+    {
+        return $this->plantel;
+    }
+
+    /**
+     * @param mixed $plantel
+     */
+    public function setPlantel($plantel)
+    {
+        $this->plantel = $plantel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMunicipio()
+    {
+        return $this->municipio;
+    }
+
+    /**
+     * @param mixed $municipio
+     */
+    public function setMunicipio($municipio)
+    {
+        $this->municipio = $municipio;
+    }
+
+
 
 }

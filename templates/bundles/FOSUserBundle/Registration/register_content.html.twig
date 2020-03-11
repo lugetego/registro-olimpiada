@@ -74,7 +74,12 @@
                                 {{ form_widget(form.materno, {'attr': {'class': 'form-control'}}) }}
                             </div>
                             <div class="form-group col-md-6 col-sm-12">
-                                <label for="inputName">Plantel</label>
+                                <label for="inputName">Plantel al que pertenece</label>
+                                <span class="text-danger">{{ form_errors(form.plantel) }}</span>
+                                {{ form_widget(form.plantel, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label for="inputName">Sede a registrar</label>
                                 <span class="text-danger">{{ form_errors(form.sede) }}</span>
                                 {{ form_widget(form.sede, {'attr': {'class': 'form-control'}}) }}
                             </div>

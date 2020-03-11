@@ -15,17 +15,24 @@ class EstudianteType extends AbstractType
             ->add('nombre')
             ->add('paterno')
             ->add('materno')
+            ->add('municipio')
             ->add('nivel', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType',array(
                 'label'=>'Nivel',
                 'choices'=>array(
-                    'Primaria'=>'Primaria',
-                    'Secundaria'=>'Secundaria',
-                    'Preparatoria'=>'Preparatoria',
+                    '5to. de primaria'=>'5to. de primaria',
+                    '6to. de primaria'=>'6to. de primaria',
+                    '1ro. de secundaria'=>'1ro. de secundaria',
+                    '2do. de secundaria'=>'2do. de secundaria',
+                    '3ro. de secundaria'=>'3ro. de secundaria',
+                    '1ro. de preparatoria'=>'1ro. de preparatoria',
+                    '2do. de preparatoria'=>'2do. de preparatoria',
+                    '3ro. de preparatoria'=>'3ro. de preparatoria',
                 ),
                 'placeholder'=>'Seleccionar',
                 'required'=>true,
             ))
             ->add('mail')
+            ->add('plantel')
             ->add('nacimiento','Symfony\Component\Form\Extension\Core\Type\DateType',array(
                 'placeholder' => array(
                     'year' => 'Año',
