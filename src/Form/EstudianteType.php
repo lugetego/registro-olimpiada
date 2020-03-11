@@ -26,7 +26,6 @@ class EstudianteType extends AbstractType
                     '3ro. de secundaria'=>'3ro. de secundaria',
                     '1ro. de preparatoria'=>'1ro. de preparatoria',
                     '2do. de preparatoria'=>'2do. de preparatoria',
-                    '3ro. de preparatoria'=>'3ro. de preparatoria',
                 ),
                 'placeholder'=>'Seleccionar',
                 'required'=>true,
