@@ -47,14 +47,6 @@ class User extends BaseUser
     protected $materno;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="plantel", type="string", length=255)
-     * @Assert\NotBlank(message="Escribe el plantel al que perteneces")
-     */
-    protected $plantel;
-
-    /**
      * @ORM\OneToMany(targetEntity="Estudiante", mappedBy="coordinador", cascade={"persist"})
      */
     private $estudiantes;
@@ -339,21 +331,7 @@ class User extends BaseUser
         return $this->estudiantes;
     }
 
-    /**
-     * @return string
-     */
-    public function getPlantel()
-    {
-        return $this->plantel;
-    }
 
-    /**
-     * @param string $plantel
-     */
-    public function setPlantel(string $plantel)
-    {
-        $this->plantel = $plantel;
-    }
 
 
 

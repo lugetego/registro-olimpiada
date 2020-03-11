@@ -16,7 +16,6 @@ class RegistrationType extends AbstractType
         $builder->add('nombre');
         $builder->add('paterno');
         $builder->add('materno');
-        $builder->add('plantel');
         $builder->add('celular');
         $builder
             ->add('sede')
