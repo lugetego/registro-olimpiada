@@ -41,7 +41,8 @@ class EstudianteType extends AbstractType
                 'label'=>'Fecha de nacimiento',
                 'required'=>true,
 
-            ))            ->add('puntuacion')
+            ))
+            ->add('puntuacion')
         ;
     }
 

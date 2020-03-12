@@ -5,7 +5,7 @@ fos_user:
   user_class: App\Entity\User
 
   from_email:
-    address: "webmaster@matmor.unam.mx"
+    address: "gerardo@matmor.unam.mx"
     sender_name: "webmaster@matmor.unam.mx"
 
   registration:
