@@ -18,7 +18,11 @@
     <li class="nav-item">
         <a class="nav-link active" href="#">
             <span data-feather="users"></span>
-            <i class="fas fa-user-friends"></i> Coordinadores registrados <span class="badge badge-pill badge-primary small">{{ coordinadores|length }}</span>
+            {% set numcoord = 0 %}
+            {% for coordinador in coordinadores  if "ROLE_USER" in coordinador.roles.0 %}
+                {% set numcoord= numcoord + 1 %}
+            {% endfor %}
+            <i class="fas fa-user-friends"></i> Coordinadores registrados <span class="badge badge-pill badge-primary small">{{ numcoord }}</span>
         </a>
     </li>
 {% endblock %}
@@ -65,8 +69,13 @@
         </tbody>
     </table>
 
+    {% set numcoord = 0 %}
+    {% for coordinador in coordinadores  if "ROLE_USER" in coordinador.roles.0 %}
+        {% set numcoord= numcoord + 1 %}
+    {% endfor %}
+
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
-        <h1 class="h4">Coordinadores registrados <span class="badge badge-pill badge-primary small">{{ coordinadores|length }}</span></h1>
+        <h1 class="h4">Coordinadores registrados <span class="badge badge-pill badge-primary small">{{ numcoord }}</span></h1>
     </div>
 
     <table class="table table-striped table-bordered table-hover table-condensed " id="example2">
@@ -83,9 +92,14 @@
         </tr>
         </thead>
         <tbody>
-        {% for coordinador in coordinadores %}
+
+
+
+
+        {% for coordinador in coordinadores if "ROLE_USER" in coordinador.roles.0 %}
+
             <tr>
-{#                <td><a href="{{ path('estudiante_edit', {'slug': estudiante.slug}) }}">{{ estudiante.slug }}</a></td>#}
+                {#                <td><a href="{{ path('estudiante_edit', {'slug': estudiante.slug}) }}">{{ estudiante.slug }}</a></td>#}
                 <td>{{ coordinador.username }}</td>
                 <td>{{ coordinador.nombre }}</td>
                 <td>{{ coordinador.paterno }}</td>
@@ -95,6 +109,7 @@
                 <td>{{ coordinador.sede }}</td>
                 <td>{{ coordinador.municipio }}</td>
             </tr>
+            {#            {% endif %}#}
         {% else %}
             <tr>
                 <td colspan="9">no records found</td>
