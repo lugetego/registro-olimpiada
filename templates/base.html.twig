@@ -46,7 +46,11 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                            <span>Alumnos</span>
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <span>Administración</span>
+                            {% else %}
+                                <span>Alumnos</span>
+                            {% endif %}
                         </h6>
                         {% block sidebar %}
                         {% endblock %}

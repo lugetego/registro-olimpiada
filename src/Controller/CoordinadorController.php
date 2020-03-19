@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\Estudiante;
 use App\Form\EstudianteType;
 use App\Repository\EstudianteRepository;
+use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,14 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CoordinadorController extends AbstractController
 {
+
+    private $manager;
+
+    public function __construct(UserManagerInterface $manager)
+    {
+        $this->manager = $manager;
+    }
+
     /**
      * @Route("/", name="coordinador_index", methods={"GET"})
      */
@@ -24,11 +33,24 @@ class CoordinadorController extends AbstractController
 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
+        $coordinadores = $this->manager->findUsers();
 
-        return $this->render('coordinador/index.html.twig', [
-            'estudiantes' => $estudianteRepository->findByCoordinador($user),
-            'user'=>$user,
-        ]);
+
+        if ( $this->isGranted('ROLE_ADMIN') )
+        {
+            return $this->render('admin/index.html.twig', [
+                'estudiantes' => $estudianteRepository->findAll(),
+                'coordinadores'=> $coordinadores,
+                'user'=>$user,
+            ]);
+        }
+        else {
+
+            return $this->render('coordinador/index.html.twig', [
+                'estudiantes' => $estudianteRepository->findByCoordinador($user),
+                'user' => $user,
+            ]);
+        }
     }
 
     /**
