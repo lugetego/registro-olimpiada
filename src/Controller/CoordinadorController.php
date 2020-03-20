@@ -80,15 +80,23 @@ class CoordinadorController extends AbstractController
         ]);
     }
 
-//    /**
-//     * @Route("/{id}", name="estudiante_show", methods={"GET"})
-//     */
-//    public function show(Estudiante $estudiante): Response
-//    {
-//        return $this->render('estudiante/show.html.twig', [
-//            'estudiante' => $estudiante,
-//        ]);
-//    }
+    /**
+     * @Route("/{username}", name="coordinador_sede", methods={"GET"})
+     */
+    public function sede(EstudianteRepository $estudianteRepository, $username): Response
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user = $this->getUser();
+
+        $coordinador = $this->manager->findUserByUsername($username);
+
+        return $this->render('admin/sede.html.twig', [
+            'estudiantes' => $estudianteRepository->findByCoordinador($username),
+            'user'=>$user,
+            'coordinador'=>$coordinador,
+
+        ]);
+    }
 
 //    /**
 //     * @Route("/{id}/edit", name="estudiante_edit", methods={"GET","POST"})
