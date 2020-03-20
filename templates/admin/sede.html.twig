@@ -28,7 +28,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
         <h1 class="h4">Alumnos en la sede <span class="badge badge-pill badge-primary small">{{ estudiantes|length }}</span></h1>
-        <p><strong>Coordinador:</strong> {{ coordinador.username }}</p>
+        <p><strong>Coordinador:</strong> {{ coordinador.nombre }} {{ coordinador.apaterno }} {{ coordinador.amaterno }}</p>
         <p><strong>Sede:</strong> {{ coordinador.sede }}</p>
         <p><strong>Municipio:</strong> {{ coordinador.municipio }}</p>
     </div>
