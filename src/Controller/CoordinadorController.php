@@ -91,7 +91,7 @@ class CoordinadorController extends AbstractController
         $coordinador = $this->manager->findUserByUsername($username);
 
         return $this->render('admin/sede.html.twig', [
-            'estudiantes' => $estudianteRepository->findByCoordinador($coordinador->getUsername()),
+            'estudiantes' => $estudianteRepository->findByCoordinador($coordinador),
             'user'=>$user,
             'coordinador'=>$coordinador,
 

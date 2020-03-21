@@ -57,7 +57,7 @@
         </tr>
         </thead>
         <tbody>
-        ---{{ estudiantes|length }}
+
         {% for estudiante in estudiantes %}
             <tr>
                 <td><a href="{{ path('estudiante_edit', {'slug': estudiante.slug}) }}">{{ estudiante.slug }}</a></td>
