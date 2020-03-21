@@ -89,15 +89,15 @@
             <th class="text-center">Teléfono</th>
             <th class="text-center">Sede</th>
             <th class="text-center">Municipio</th>
+            <th class="text-center">Alumnos</th>
         </tr>
         </thead>
         <tbody>
 
 
 
-
         {% for coordinador in coordinadores if "ROLE_USER" in coordinador.roles.0 %}
-
+aaaaaaaaa
             <tr>
                 <td><a href="{{ path('coordinador_sede', {'username': coordinador.username}) }}">{{ coordinador.username }}</a></td>
 {#                <td>{{ coordinador.username }}</td>#}
@@ -108,6 +108,7 @@
                 <td>{{ coordinador.celular }}</td>
                 <td>{{ coordinador.sede }}</td>
                 <td>{{ coordinador.municipio }}</td>
+                <td>{{ coordinador.getEstudiantes()|length }}</td>
             </tr>
             {#            {% endif %}#}
         {% else %}
