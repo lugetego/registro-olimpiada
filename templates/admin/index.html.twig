@@ -97,10 +97,8 @@
 
 
         {% for coordinador in coordinadores if "ROLE_USER" in coordinador.roles.0 %}
-aaaaaaaaa
             <tr>
                 <td><a href="{{ path('coordinador_sede', {'username': coordinador.username}) }}">{{ coordinador.username }}</a></td>
-{#                <td>{{ coordinador.username }}</td>#}
                 <td>{{ coordinador.nombre }}</td>
                 <td>{{ coordinador.paterno }}</td>
                 <td>{{ coordinador.materno }}</td>
@@ -110,7 +108,7 @@ aaaaaaaaa
                 <td>{{ coordinador.municipio }}</td>
                 <td>{{ coordinador.getEstudiantes()|length }}</td>
             </tr>
-            {#            {% endif %}#}
+
         {% else %}
             <tr>
                 <td colspan="9">no records found</td>
